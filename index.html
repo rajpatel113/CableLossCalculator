@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coax Cable Signal Loss Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Coax Cable Signal Loss Calculator</h1>
+
+    <div class="d-flex mb-3">
+        <button class="btn btn-dark-mode mr-2" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <button class="btn btn-primary" onclick="AmpSetupTool()">Amp Setup Tool</button>
+      </div>
+
+    <form id="lossCalculatorForm">
+        <div class="mb-3">
+            <label for="cableType" class="form-label">Cable Type</label>
+            <select id="cableType" class="form-select" required>
+                <option value="" selected disabled>Select a cable type</option>
+                <!-- All cable types added from the table -->
+                <option value="QR 540">QR 540</option>
+                <option value="QR 715">QR 715</option>
+                <option value="QR 860">QR 860</option>
+                <option value="P3 412">P3 412</option>
+                <option value="P3 500">P3 500</option>
+                <option value="P3 625">P3 625</option>
+                <option value="P3 750">P3 750</option>
+                <option value="P3 875">P3 875</option>
+                <option value="P3 1000">P3 1000</option>
+                <option value="P1 412">P1 412</option>
+                <option value="P1 500">P1 500</option>
+                <option value="P1 625">P1 625</option>
+                <option value="P1 750">P1 750</option>
+                <option value="P1 1000">P1 1000</option>
+                <option value="P0 412">P0 412</option>
+                <option value="P0 500">P0 500</option>
+                <option value="P0 750">P0 750</option>
+                <option value="P0 1000">P0 1000</option>
+                <option value="CW 500">CW 500</option>
+                <option value="CW 750">CW 750</option>
+                <option value="CW 875">CW 875</option>
+                <option value="NE 412">NE 412</option>
+                <option value="NE 500">NE 500</option>
+                <option value="NE 750">NE 750</option>
+                <option value="SELA 412">SELA 412</option>
+                <option value="P3 RG6">P3 RG6</option>
+                <option value="P3 RG11">P3 RG11</option>
+                <option value="S 59U">S 59U</option>
+                <option value="F 59U">F 59U</option>
+                <option value="S 6U">S 6U</option>
+                <option value="S 11U">S 11U</option>
+                <option value="F 11U">F 11U</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="length" class="form-label">Cable Length</label>
+            <input type="number" id="length" class="form-control" placeholder="Enter cable length" required>
+        </div>
+        <div class="mb-3">
+            <label for="lengthUnit" class="form-label">Length Unit</label>
+            <select id="lengthUnit" class="form-select" required>
+                <option value="ft">Feet (ft)</option>
+                <option value="m">Meters (m)</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="frequency" class="form-label">Frequency (MHz)</label>
+            <input type="number" id="frequency" class="form-control" placeholder="Enter frequency in MHz" required>
+        </div>
+        <div class="mb-3">
+            <label for="additionalLoss" class="form-label">Additional Loss (Tap/Splitter/Splice) in dB</label>
+            <input type="number" id="additionalLoss" class="form-control" placeholder="Enter additional loss in dB" step="0.01">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Calculate Loss</button>
+    </form>
+
+    <div id="result" class="result text-center"></div>
+</div>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="index.js"></script>
+
+</body>
+</html>
